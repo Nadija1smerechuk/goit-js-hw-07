@@ -27,7 +27,6 @@ const images = [
 
 
 const gallery = document.querySelector('.gallery');
-
 function createGallery(images) {
   const galleryItems = images.slice(0, 3).map(img => {
     const li = document.createElement('li');
@@ -36,15 +35,10 @@ function createGallery(images) {
     image.width = 360;
     image.height = 300;
     image.alt = img.alt;
-    li.appendChild(image);
-    return li;
+    li.append(image);
+    return li.outerHTML; 
   });
-
-  galleryItems.forEach(item => {
-    gallery.appendChild(item);
-  });
+  gallery.insertAdjacentHTML('afterbegin', galleryItems.join('')); 
 }
-
-gallery.insertAdjacentHTML('afterbegin', createGallery(images));
-
+createGallery(images);
 

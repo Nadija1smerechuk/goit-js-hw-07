@@ -24,13 +24,18 @@ destroyBtn.addEventListener('click', () => {
 
 function createBoxes(amount) {
     const boxSize = 30;
+    const fragment = document.createDocumentFragment();
     for (let i = 0; i < amount; i++) {
         const box = document.createElement('div');
         box.style.width = `${boxSize + i * 10}px`;
         box.style.height = `${boxSize + i * 10}px`;
         box.style.backgroundColor = getRandomHexColor();
-        boxesContainer.appendChild(box);
+        fragment.appendChild(box);
     }
+    boxesContainer.appendChild(fragment);
 }
+
+
+
 
 
